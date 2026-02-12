@@ -7,6 +7,22 @@
 
 Site moderno, profissional e totalmente responsivo para a Informática Samtech - Soluções em Tecnologia da Informação.
 
+## 🚀 DEPLOY AUTOMÁTICO - 100% CONFIGURADO!
+
+**✨ Site publica SOZINHO quando você faz push!**
+
+### 🎯 3 Passos para Colocar no Ar:
+
+1. **Ative GitHub Pages**: Vá em [Settings → Pages](https://github.com/Samukajr/informatica-samtech/settings/pages) → Source: **GitHub Actions**
+2. **Faça Merge**: Do Pull Request ativo
+3. **Pronto!** Site estará em: `https://samukajr.github.io/informatica-samtech/`
+
+🔥 **[GUIA COMPLETO DE DEPLOY AUTOMÁTICO →](DEPLOY-AUTOMATICO.md)** 🔥
+
+⚠️ **IMPORTANTE**: Google Sites NÃO suporta HTML customizado! Veja o [guia de migração](DEPLOY-AUTOMATICO.md).
+
+---
+
 ## 🎯 Início Rápido / Quick Start
 
 **✅ O site está pronto e funcionando!**
@@ -15,13 +31,14 @@ Site moderno, profissional e totalmente responsivo para a Informática Samtech -
 
 1. **Localmente**: Abra o arquivo `index.html` no navegador
 2. **Com servidor local**: Execute `python -m http.server 8000` e acesse http://localhost:8000
-3. **Online (GitHub Pages)**: Configure em Settings → Pages do GitHub
+3. **Online (GitHub Pages)**: ⭐ **Deploy 100% Automático!** [Ver guia](DEPLOY-AUTOMATICO.md)
 
 📖 **[Ver instruções completas em português no arquivo ACESSO.md](ACESSO.md)**
 
-### 🌐 Deploy para informaticasamtech.com.br (Localweb):
+### 🌐 Opções de Deploy:
 
-🚀 **[Guia Completo de Deploy para Localweb →](DEPLOY-LOCALWEB.md)**
+- 🚀 **[Deploy AUTOMÁTICO (GitHub Pages) →](DEPLOY-AUTOMATICO.md)** ⭐ **RECOMENDADO**
+- 📦 **[Deploy Manual (Localweb) →](DEPLOY-LOCALWEB.md)** (se necessário)
 
 ---
 
