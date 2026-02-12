@@ -1,5 +1,13 @@
 # ⚡ GUIA RÁPIDO: Publicar Automaticamente
 
+## 🌐 DOMÍNIO: www.informaticasamtech.com.br
+
+**✅ Arquivo CNAME já configurado!**
+
+Para usar seu domínio personalizado: **[Ver guia completo →](CONFIGURAR-DOMINIO.md)**
+
+---
+
 ## 🎯 3 Cliques e Pronto!
 
 ### ✅ Passo 1: Ativar GitHub Pages (30 segundos)
@@ -43,30 +51,34 @@
 
 ---
 
-## 🌐 Usar Domínio informaticasamtech.com.br
+## 🌐 Usar Domínio www.informaticasamtech.com.br
 
-Depois que o site estiver funcionando, configure o domínio:
+**✅ Arquivo CNAME já configurado automaticamente!**
 
-### No Painel de DNS:
+### 🔥 Guia Completo: [CONFIGURAR-DOMINIO.md](CONFIGURAR-DOMINIO.md)
 
-Adicione estes registros:
+### Resumo Rápido:
 
+**No Painel de DNS** (OBRIGATÓRIO):
+```
+Tipo: CNAME | Nome: www | Valor: samukajr.github.io
+```
+
+**Opcional** (para domínio sem www):
 ```
 Tipo: A | Nome: @ | Valor: 185.199.108.153
 Tipo: A | Nome: @ | Valor: 185.199.109.153
 Tipo: A | Nome: @ | Valor: 185.199.110.153
 Tipo: A | Nome: @ | Valor: 185.199.111.153
-Tipo: CNAME | Nome: www | Valor: samukajr.github.io
 ```
 
-### No GitHub:
-
+**No GitHub Pages**:
 1. Vá em: https://github.com/Samukajr/informatica-samtech/settings/pages
-2. Em **"Custom domain"**: `informaticasamtech.com.br`
-3. Salve
+2. Em **"Custom domain"**: `www.informaticasamtech.com.br`
+3. Salve e aguarde verificação
 4. Marque **"Enforce HTTPS"**
 
-**Aguarde até 24 horas para o DNS propagar.**
+**Aguarde propagação DNS**: 5 minutos a 48 horas (normalmente 1-4 horas)
 
 ---
 

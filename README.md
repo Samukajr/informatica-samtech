@@ -7,6 +7,17 @@
 
 Site moderno, profissional e totalmente responsivo para a Informática Samtech - Soluções em Tecnologia da Informação.
 
+## 🌐 SITE EM: www.informaticasamtech.com.br
+
+**✅ Domínio customizado configurado automaticamente!**
+
+O arquivo `CNAME` já está criado. Basta configurar o DNS e o site ficará no ar em:
+**https://www.informaticasamtech.com.br** 🎉
+
+🔥 **[GUIA: CONFIGURAR DOMÍNIO www.informaticasamtech.com.br →](CONFIGURAR-DOMINIO.md)** 🔥
+
+---
+
 ## 🚀 DEPLOY AUTOMÁTICO - 100% CONFIGURADO!
 
 **✨ Site publica SOZINHO quando você faz push!**
@@ -38,6 +49,7 @@ Site moderno, profissional e totalmente responsivo para a Informática Samtech -
 ### 🌐 Opções de Deploy:
 
 - 🚀 **[Deploy AUTOMÁTICO (GitHub Pages) →](DEPLOY-AUTOMATICO.md)** ⭐ **RECOMENDADO**
+- 🌐 **[Configurar Domínio www.informaticasamtech.com.br →](CONFIGURAR-DOMINIO.md)** 🎯 **NOVO**
 - 📦 **[Deploy Manual (Localweb) →](DEPLOY-LOCALWEB.md)** (se necessário)
 
 ---
