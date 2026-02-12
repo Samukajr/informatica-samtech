@@ -6,6 +6,36 @@ Este guia explica **passo a passo** como fazer o upload do site da Informática 
 
 ---
 
+## ⚠️ IMPORTANTE: Painéis da Localweb
+
+A Localweb possui **diferentes painéis** dependendo do seu tipo de serviço:
+
+### 🔐 Tipos de Acesso:
+
+1. **Minha Localweb** (Principal): https://minha.localweb.com.br
+   - Painel principal para gerenciar serviços
+   - Acesso a FTP, hospedagem, domínios, emails
+   - **Use este se tiver acesso!**
+
+2. **Painel de Hospedagem**: https://hosting.localweb.com.br
+   - Específico para gerenciar arquivos e hospedagem
+   - Pode ser cPanel ou painel próprio da Localweb
+
+3. **Painel de DNS**: 
+   - Serve apenas para configurar DNS (apontamentos de domínio)
+   - **NÃO permite fazer upload de arquivos!**
+   - Se você só tem este acesso, precisa usar FTP (veja Método 1)
+
+4. **Email de Boas-vindas**:
+   - Quando você contratou, recebeu um email com todas as credenciais
+   - Procure por: "Bem-vindo à Localweb" ou "Dados de Acesso"
+
+### 💡 Dica Rápida:
+
+Se você **só tem acesso ao painel de DNS**, vá direto para o **Método 1 (FTP)** usando as credenciais que você recebeu por email ou entre em contato com o suporte: **0800 000 2500**
+
+---
+
 ## 📦 Arquivos que Devem Ser Enviados
 
 Você precisa enviar **TODOS** estes arquivos e pastas para o servidor:
@@ -31,14 +61,38 @@ Você precisa enviar **TODOS** estes arquivos e pastas para o servidor:
 
 ### Passo 1: Obter suas Credenciais FTP da Localweb
 
-1. Acesse o **Painel de Controle da Localweb**: https://painel.localweb.com.br
-2. Faça login com seu usuário e senha
-3. Procure por **"FTP"** ou **"Contas FTP"**
-4. Anote as seguintes informações:
-   - **Servidor FTP**: geralmente `ftp.informaticasamtech.com.br` ou um endereço fornecido
-   - **Usuário FTP**: seu usuário (pode ser o mesmo do painel ou específico)
-   - **Senha FTP**: sua senha
-   - **Porta**: geralmente **21** (FTP normal) ou **22** (SFTP)
+A Localweb possui diferentes painéis de acesso. Você pode encontrar suas credenciais FTP em qualquer um deles:
+
+#### Opção A: Painel de Hospedagem Localweb
+
+1. Acesse um dos seguintes links (dependendo do seu tipo de conta):
+   - **Minha Localweb**: https://minha.localweb.com.br
+   - **Painel de Hospedagem**: https://hosting.localweb.com.br
+   - **Central do Cliente**: Entre pelo site principal da Localweb e faça login
+
+2. Após fazer login, procure por:
+   - **"FTP"** ou **"Contas FTP"** ou **"Gerenciador de FTP"**
+   - Ou vá em **"Hospedagem"** → **"FTP"**
+
+#### Opção B: Via Painel DNS (se você tem acesso)
+
+Se você só tem acesso ao painel de DNS, as credenciais FTP geralmente são:
+- **Servidor FTP**: `ftp.informaticasamtech.com.br` ou `ftp.seudominio.com.br`
+- **Usuário**: geralmente é o mesmo usuário do painel, ou `informaticasamtech` ou o nome do seu domínio
+- **Senha**: a mesma senha do painel de controle
+
+#### Opção C: Email de Boas-vindas da Localweb
+
+Verifique seu email! A Localweb envia um email com todas as credenciais quando você contrata a hospedagem.
+- Procure por emails com assunto: "Bem-vindo à Localweb" ou "Dados de Acesso"
+
+#### Informações FTP necessárias:
+
+Anote as seguintes informações quando encontrá-las:
+- **Servidor FTP**: `ftp.informaticasamtech.com.br` ou endereço fornecido
+- **Usuário FTP**: seu usuário (geralmente o nome do domínio ou um usuário específico)
+- **Senha FTP**: sua senha
+- **Porta**: geralmente **21** (FTP normal) ou **22** (SFTP)
 
 ### Passo 2: Baixar e Instalar o FileZilla (Cliente FTP Gratuito)
 
@@ -106,10 +160,21 @@ Se você preferir não usar FTP, pode fazer o upload pelo painel da Localweb:
 
 ### Passo 1: Acessar o Gerenciador de Arquivos
 
-1. Acesse: https://painel.localweb.com.br
-2. Faça login
-3. Procure por **"Gerenciador de Arquivos"** ou **"File Manager"**
-4. Entre na pasta `public_html/` (ou equivalente)
+1. Acesse o painel da Localweb:
+   - **Minha Localweb**: https://minha.localweb.com.br
+   - **Painel de Hospedagem**: https://hosting.localweb.com.br
+   - Ou entre através do site principal: https://www.localweb.com.br
+
+2. Faça login com suas credenciais
+
+3. Procure por uma destas opções:
+   - **"Gerenciador de Arquivos"** ou **"File Manager"**
+   - **"cPanel"** → **"Gerenciador de Arquivos"**
+   - **"Hospedagem"** → **"Arquivos"**
+
+4. Entre na pasta `public_html/` (ou `www/` ou `htdocs/`)
+
+⚠️ **Nota**: Se você só tem acesso ao painel de DNS, você precisará usar o Método 1 (FTP) pois o painel de DNS não tem gerenciador de arquivos.
 
 ### Passo 2: Fazer Upload
 
@@ -166,11 +231,24 @@ Após fazer o upload, verifique:
 
 A Localweb oferece certificado SSL gratuito. Para ativar:
 
-1. Acesse o **Painel de Controle da Localweb**
-2. Procure por **"SSL"** ou **"Certificado SSL"**
-3. Ative o **Let's Encrypt** (gratuito)
-4. Aguarde a instalação (pode levar até 24 horas)
-5. Force o redirecionamento HTTP → HTTPS se disponível
+1. Acesse o painel da Localweb (https://minha.localweb.com.br ou https://hosting.localweb.com.br)
+
+2. Procure por uma destas opções:
+   - **"SSL"** ou **"Certificado SSL"**
+   - **"Segurança"** → **"SSL"**
+   - **"cPanel"** → **"SSL/TLS"**
+
+3. Ative o **Let's Encrypt** (gratuito) para seu domínio informaticasamtech.com.br
+
+4. Aguarde a instalação (pode levar de alguns minutos até 24 horas)
+
+5. Configure o redirecionamento HTTP → HTTPS:
+   - Procure por **"Forçar HTTPS"** no painel
+   - Ou use o arquivo `.htaccess` (veja abaixo)
+
+**Importante**: Após ativar o SSL, seu site estará disponível em:
+- ✅ https://informaticasamtech.com.br (com HTTPS - seguro)
+- ✅ http://informaticasamtech.com.br (será redirecionado para HTTPS)
 
 ---
 
@@ -230,12 +308,32 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 ## 📞 Suporte da Localweb
 
-Se tiver problemas técnicos com o servidor:
+Se tiver problemas técnicos com o servidor ou precisar de ajuda:
 
-- **Telefone**: 0800 000 2500
-- **Chat Online**: Disponível no painel de controle
+### Canais de Suporte:
+
+- **Telefone**: 0800 000 2500 (atendimento em horário comercial)
+- **WhatsApp**: (11) 4003-3612
+- **Chat Online**: Disponível após fazer login em https://minha.localweb.com.br
 - **Email**: suporte@localweb.com.br
+- **Tickets**: Abra um chamado no painel de controle
 - **Base de Conhecimento**: https://ajuda.localweb.com.br
+
+### Links Úteis da Localweb:
+
+- **Site Principal**: https://www.localweb.com.br
+- **Minha Localweb**: https://minha.localweb.com.br (painel principal)
+- **Painel de Hospedagem**: https://hosting.localweb.com.br
+- **Central de Ajuda**: https://ajuda.localweb.com.br
+- **Status do Servidor**: https://status.localweb.com.br
+
+### Dicas para o Suporte:
+
+Quando entrar em contato, tenha em mãos:
+- Seu domínio: informaticasamtech.com.br
+- Número do contrato ou CPF/CNPJ
+- Descrição detalhada do problema
+- Prints de tela se necessário
 
 ---
 
