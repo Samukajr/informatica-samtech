@@ -19,6 +19,10 @@ Site moderno, profissional e totalmente responsivo para a Informática Samtech -
 
 📖 **[Ver instruções completas em português no arquivo ACESSO.md](ACESSO.md)**
 
+### 🌐 Deploy para informaticasamtech.com.br (Localweb):
+
+🚀 **[Guia Completo de Deploy para Localweb →](DEPLOY-LOCALWEB.md)**
+
 ---
 
 ## 🚀 Visão Geral
