@@ -33,9 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Sticky Header on Scroll
     // ============================================
     const header = document.getElementById('header');
-    let lastScroll = 0;
 
-    window.addEventListener('scroll', function() {
+    function updateHeader() {
         const currentScroll = window.pageYOffset;
         
         if (currentScroll > 100) {
@@ -43,9 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             header.classList.remove('scrolled');
         }
-        
-        lastScroll = currentScroll;
-    });
+    }
 
     // ============================================
     // Active Navigation Link on Scroll
@@ -240,16 +237,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     // Scroll Animations for Elements
     // ============================================
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
-
     function isElementPartiallyInViewport(el) {
         const rect = el.getBoundingClientRect();
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -286,21 +273,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
-    // Run animation check on scroll and load
-    window.addEventListener('scroll', animateOnScroll);
-    window.addEventListener('load', animateOnScroll);
-
-    // ============================================
-    // Service Cards Hover Effect Enhancement
-    // ============================================
-    const serviceCards = document.querySelectorAll('.service-card');
-    
-    serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transition = 'all 0.3s ease';
-        });
-    });
-
     // ============================================
     // Accessibility: Keyboard Navigation
     // ============================================
@@ -330,6 +302,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Debounced scroll handler for performance
     const debouncedScrollHandler = debounce(function() {
+        updateHeader();
         updateActiveLink();
         animateOnScroll();
     }, 100);

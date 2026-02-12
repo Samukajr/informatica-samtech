@@ -63,7 +63,7 @@ informatica-samtech/
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/Samukajr/informatica-samtech.git
+git clone https://github.com/SEU-USUARIO/informatica-samtech.git
 cd informatica-samtech
 ```
 
@@ -92,7 +92,7 @@ Depois acesse `http://localhost:8000` no navegador
 2. Vá em **Settings** > **Pages**
 3. Em **Source**, selecione a branch `main` e a pasta `/ (root)`
 4. Clique em **Save**
-5. Seu site estará disponível em: `https://samukajr.github.io/informatica-samtech/`
+5. Seu site estará disponível em: `https://seu-usuario.github.io/informatica-samtech/`
 
 ### Vercel
 
