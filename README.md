@@ -7,6 +7,20 @@
 
 Site moderno, profissional e totalmente responsivo para a Informática Samtech - Soluções em Tecnologia da Informação.
 
+## 🎯 Início Rápido / Quick Start
+
+**✅ O site está pronto e funcionando!**
+
+### Como visualizar o site:
+
+1. **Localmente**: Abra o arquivo `index.html` no navegador
+2. **Com servidor local**: Execute `python -m http.server 8000` e acesse http://localhost:8000
+3. **Online (GitHub Pages)**: Configure em Settings → Pages do GitHub
+
+📖 **[Ver instruções completas em português no arquivo ACESSO.md](ACESSO.md)**
+
+---
+
 ## 🚀 Visão Geral
 
 Este é o site oficial da Informática Samtech, desenvolvido com HTML5, CSS3 e JavaScript vanilla, oferecendo uma experiência moderna e responsiva em todos os dispositivos.
