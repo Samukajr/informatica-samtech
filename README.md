@@ -7,6 +7,30 @@
 
 Site moderno, profissional e totalmente responsivo para a Informática Samtech - Soluções em Tecnologia da Informação.
 
+## 💻 TRABALHAR NO VSCODE LOCAL
+
+**🚀 Quer editar no seu computador?**
+
+👉 **[GUIA: Como Abrir no VSCode →](COMO-ABRIR-VSCODE.md)** 👈
+
+**Inclui:**
+- 📥 Como clonar o repositório
+- 💻 Como abrir no VSCode
+- 🛠️ Extensões recomendadas
+- 🤖 Scripts de automação disponíveis
+
+**Scripts úteis:**
+```bash
+npm run validate    # Validar configuração
+npm run check-dns   # Verificar DNS
+npm run status      # Ver status
+npm start           # Servidor local
+```
+
+📖 **[Ver todos os scripts →](SCRIPTS-AUTOMACAO.md)**
+
+---
+
 ## 🌐 SITE EM: www.informaticasamtech.com.br
 
 **✅ Domínio customizado configurado automaticamente!**

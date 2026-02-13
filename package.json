@@ -1,0 +1,16 @@
+{
+  "name": "informatica-samtech",
+  "version": "1.0.0",
+  "description": "Site da Informática Samtech",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "check-dns": "node scripts/check-dns.js",
+    "validate": "node scripts/validate.js",
+    "status": "node scripts/status.js",
+    "deploy": "git push origin main",
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": ["website", "informatica", "samtech"],
+  "author": "Samukajr",
+  "license": "MIT"
+}
