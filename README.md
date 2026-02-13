@@ -14,6 +14,18 @@ Site moderno, profissional e totalmente responsivo para a Informática Samtech -
 O arquivo `CNAME` já está criado. Basta configurar o DNS e o site ficará no ar em:
 **https://www.informaticasamtech.com.br** 🎉
 
+### 🚨 ERRO: "Domínio não resolve para GitHub Pages"?
+
+**Solução:**
+
+🔥 **[ERRO DNS - Solução Completa →](ERRO-DNS-SOLUCAO.md)** 🔥
+
+⚡ **[Solução Rápida em 3 Passos →](ERRO-DNS-RAPIDO.md)**
+
+**TL;DR:** Você precisa adicionar um registro CNAME no seu provedor de domínio (Registro.br, Locaweb, etc). Eu não consigo fazer isso por você pois requer acesso ao seu painel de DNS! 🔒
+
+---
+
 ### 🎯 Configurar Domínio no GitHub:
 
 **❓ Não encontra a opção no GitHub?**
