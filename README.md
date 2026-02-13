@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# informatica-samtech
-=======
 # Informática Samtech - Website Oficial
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -21,6 +18,8 @@ Site moderno, profissional e totalmente responsivo para a Informática Samtech -
 - 💻 Como abrir no VSCode
 - 🛠️ Extensões recomendadas
 - 🤖 Scripts de automação disponíveis
+
+📥 **[NOVO: Como Trazer Mudanças do GitHub →](COMO-TRAZER-MUDANCAS-DO-GITHUB.md)**
 
 **Scripts úteis:**
 ```bash
@@ -307,4 +306,3 @@ Para dúvidas ou suporte:
 ---
 
 Desenvolvido com ❤️ para Informática Samtech
->>>>>>> remotes/origin/copilot/create-modern-responsive-site
