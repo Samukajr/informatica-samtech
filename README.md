@@ -14,7 +14,17 @@ Site moderno, profissional e totalmente responsivo para a Informática Samtech -
 O arquivo `CNAME` já está criado. Basta configurar o DNS e o site ficará no ar em:
 **https://www.informaticasamtech.com.br** 🎉
 
-🔥 **[GUIA: CONFIGURAR DOMÍNIO www.informaticasamtech.com.br →](CONFIGURAR-DOMINIO.md)** 🔥
+### 🎯 Configurar Domínio no GitHub:
+
+**❓ Não encontra a opção no GitHub?**
+
+👉 **[CLIQUE AQUI - Guia Visual de Onde Encontrar →](ONDE-ENCONTRAR-DOMINIO.md)** 👈
+
+**Ou use o atalho rápido:**
+
+🚀 **[Configuração em 3 Cliques →](CONFIGURACAO-RAPIDA-DOMINIO.md)**
+
+🔥 **[Guia Completo DNS →](CONFIGURAR-DOMINIO.md)**
 
 ---
 
