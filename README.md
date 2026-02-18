@@ -289,7 +289,7 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes
 ## 📞 Suporte
 
 Para dúvidas ou suporte:
-- **Email**: contato@informaticasamtech.com.br
+- **Email**: informaticasamtech@gmail.com
 - **Telefone**: (XX) XXXXX-XXXX
 - **Website**: [www.informaticasamtech.com.br](https://www.informaticasamtech.com.br/)
 

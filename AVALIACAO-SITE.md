@@ -113,7 +113,7 @@ Para o site funcionar em **www.informaticasamtech.com.br**:
 - [ ] Atualizar telefone no HTML (3 localizações)
 - [ ] Atualizar endereço/localização
 - [ ] Atualizar links das redes sociais (4 links)
-- [ ] Revisar email (já está correto: contato@informaticasamtech.com.br)
+- [ ] Revisar email (já está correto: informaticasamtech@gmail.com)
 
 ### Para Publicar:
 - [ ] Fazer merge deste Pull Request

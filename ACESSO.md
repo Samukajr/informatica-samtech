@@ -129,7 +129,7 @@ https://samukajr.github.io/informatica-samtech/
 Para personalizar as informações de contato do site, edite o arquivo `index.html` e procure pela seção de contato.
 
 **Informações atuais no site:**
-- Email: contato@informaticasamtech.com.br
+- Email: informaticasamtech@gmail.com
 - Telefone: (XX) XXXXX-XXXX
 - Localização: Cidade/Estado
 
