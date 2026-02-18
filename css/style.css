@@ -433,6 +433,102 @@ a {
 }
 
 /* ============================================
+   Portfólio Section
+   ============================================ */
+.portfolio {
+    background-color: var(--bg-white);
+}
+
+.portfolio-layout {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.portfolio-summary h3,
+.portfolio-clients h3 {
+    margin-bottom: 1rem;
+}
+
+.portfolio-summary p,
+.portfolio-clients p {
+    margin-bottom: 1.5rem;
+}
+
+.timeline {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.timeline-item {
+    background-color: var(--bg-light);
+    border-radius: 14px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+}
+
+.timeline-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.timeline-date {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.client-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.client-badge {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    transition: var(--transition-normal);
+}
+
+.client-badge:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.portfolio-highlights {
+    display: grid;
+    gap: 1rem;
+}
+
+.highlight-card {
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.08), rgba(0, 163, 255, 0.08));
+    border-radius: 14px;
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 102, 204, 0.15);
+}
+
+.highlight-card h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+
+/* ============================================
    Contato Section
    ============================================ */
 .contato {
@@ -717,6 +813,10 @@ a {
     .contato-wrapper {
         grid-template-columns: 1fr;
     }
+
+    .portfolio-layout {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Mobile */
@@ -782,6 +882,10 @@ a {
     
     .servicos-grid {
         grid-template-columns: 1fr;
+    }
+
+    .timeline-item {
+        padding: 1.25rem;
     }
     
     .footer-content {

@@ -253,8 +253,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const serviceCards = document.querySelectorAll('.service-card');
         const statCards = document.querySelectorAll('.stat-card');
         const infoCards = document.querySelectorAll('.info-card');
+        const portfolioCards = document.querySelectorAll('.portfolio-card');
         
-        const allCards = [...serviceCards, ...statCards, ...infoCards];
+        const allCards = [...serviceCards, ...statCards, ...infoCards, ...portfolioCards];
         
         allCards.forEach((card, index) => {
             if (isElementPartiallyInViewport(card) && !card.classList.contains('animated')) {
