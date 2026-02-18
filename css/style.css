@@ -381,6 +381,20 @@ a {
     line-height: 1.8;
 }
 
+.sobre-highlight {
+    background: linear-gradient(135deg, rgba(31, 111, 235, 0.12), rgba(0, 194, 255, 0.12));
+    border-left: 4px solid var(--secondary-color);
+    padding: 1.25rem 1.5rem;
+    border-radius: 14px;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    box-shadow: var(--shadow-sm);
+}
+
+.sobre-highlight strong {
+    color: var(--primary-color);
+}
+
 .sobre-stats {
     display: grid;
     grid-template-columns: 1fr;
