@@ -991,6 +991,10 @@ a {
     .portfolio-layout {
         grid-template-columns: 1fr;
     }
+
+    .logo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
 }
 
 /* Mobile */
@@ -1044,6 +1048,15 @@ a {
     .hero-buttons {
         flex-direction: column;
     }
+
+    .hero-badges {
+        gap: 0.75rem;
+    }
+
+    .hero-badges li {
+        width: 100%;
+        justify-content: center;
+    }
     
     .btn {
         width: 100%;
@@ -1056,6 +1069,18 @@ a {
     
     .servicos-grid {
         grid-template-columns: 1fr;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .logo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .faq-item {
+        padding: 0.9rem 1rem;
     }
 
     .timeline-item {
@@ -1090,5 +1115,13 @@ a {
     
     .contact-form {
         padding: 1.5rem;
+    }
+
+    .logo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-card {
+        padding: 1.5rem 1.25rem;
     }
 }
