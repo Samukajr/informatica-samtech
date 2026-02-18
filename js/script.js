@@ -254,8 +254,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const statCards = document.querySelectorAll('.stat-card');
         const infoCards = document.querySelectorAll('.info-card');
         const portfolioCards = document.querySelectorAll('.portfolio-card');
+        const processCards = document.querySelectorAll('.process-card');
+        const logoTiles = document.querySelectorAll('.logo-tile');
+        const faqItems = document.querySelectorAll('.faq-item');
         
-        const allCards = [...serviceCards, ...statCards, ...infoCards, ...portfolioCards];
+        const allCards = [
+            ...serviceCards,
+            ...statCards,
+            ...infoCards,
+            ...portfolioCards,
+            ...processCards,
+            ...logoTiles,
+            ...faqItems
+        ];
         
         allCards.forEach((card, index) => {
             if (isElementPartiallyInViewport(card) && !card.classList.contains('animated')) {
