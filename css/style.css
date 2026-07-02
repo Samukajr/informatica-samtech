@@ -172,6 +172,17 @@ body.mouse-active .footer {
     will-change: transform, opacity;
 }
 
+.mouse-trail-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.9;
+    mix-blend-mode: screen;
+}
+
 @keyframes particleDrift {
     0% {
         opacity: 0;

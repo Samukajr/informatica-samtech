@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const maxMouseParticles = 20;
     const particleGapMs = 70;
     const mouseParticles = [];
+    const mouseTrailPoints = [];
+    const maxTrailPoints = 18;
+    let trailAnimationFrame = null;
 
     const mouseOrbit = document.createElement('div');
     mouseOrbit.className = 'mouse-orbit';
@@ -23,6 +26,94 @@ document.addEventListener('DOMContentLoaded', function() {
     const mouseRipple = document.createElement('div');
     mouseRipple.className = 'mouse-ripple';
     document.body.appendChild(mouseRipple);
+
+    const mouseTrailCanvas = document.createElement('canvas');
+    mouseTrailCanvas.className = 'mouse-trail-canvas';
+    document.body.appendChild(mouseTrailCanvas);
+    const mouseTrailContext = mouseTrailCanvas.getContext('2d');
+
+    function resizeTrailCanvas() {
+        const pixelRatio = window.devicePixelRatio || 1;
+        mouseTrailCanvas.width = Math.floor(window.innerWidth * pixelRatio);
+        mouseTrailCanvas.height = Math.floor(window.innerHeight * pixelRatio);
+        mouseTrailCanvas.style.width = '100vw';
+        mouseTrailCanvas.style.height = '100vh';
+        mouseTrailContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    }
+
+    function drawMouseTrail() {
+        if (!mouseTrailContext) {
+            return;
+        }
+
+        mouseTrailContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+        if (mouseTrailPoints.length < 2) {
+            return;
+        }
+
+        mouseTrailContext.save();
+        mouseTrailContext.lineCap = 'round';
+        mouseTrailContext.lineJoin = 'round';
+        mouseTrailContext.globalCompositeOperation = 'lighter';
+
+        for (let i = 1; i < mouseTrailPoints.length; i += 1) {
+            const start = mouseTrailPoints[i - 1];
+            const end = mouseTrailPoints[i];
+            const alpha = end.life * 0.65;
+            const width = 1.2 + (i / mouseTrailPoints.length) * 3.2;
+
+            const gradient = mouseTrailContext.createLinearGradient(start.x, start.y, end.x, end.y);
+            gradient.addColorStop(0, `rgba(39, 225, 255, ${alpha * 0.15})`);
+            gradient.addColorStop(0.5, `rgba(39, 225, 255, ${alpha * 0.78})`);
+            gradient.addColorStop(1, `rgba(73, 255, 179, ${alpha * 0.18})`);
+
+            mouseTrailContext.strokeStyle = gradient;
+            mouseTrailContext.lineWidth = width;
+            mouseTrailContext.shadowBlur = 12;
+            mouseTrailContext.shadowColor = `rgba(39, 225, 255, ${alpha * 0.26})`;
+            mouseTrailContext.beginPath();
+            mouseTrailContext.moveTo(start.x, start.y);
+            mouseTrailContext.lineTo(end.x, end.y);
+            mouseTrailContext.stroke();
+        }
+
+        mouseTrailContext.restore();
+    }
+
+    function stepMouseTrail() {
+        for (let i = mouseTrailPoints.length - 1; i >= 0; i -= 1) {
+            mouseTrailPoints[i].life -= 0.04;
+            if (mouseTrailPoints[i].life <= 0) {
+                mouseTrailPoints.splice(i, 1);
+            }
+        }
+
+        drawMouseTrail();
+
+        if (mouseTrailPoints.length > 0) {
+            trailAnimationFrame = window.requestAnimationFrame(stepMouseTrail);
+        } else {
+            trailAnimationFrame = null;
+            mouseTrailContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        }
+    }
+
+    function pushMouseTrailPoint(x, y) {
+        mouseTrailPoints.push({
+            x,
+            y,
+            life: 1
+        });
+
+        while (mouseTrailPoints.length > maxTrailPoints) {
+            mouseTrailPoints.shift();
+        }
+
+        if (!trailAnimationFrame) {
+            trailAnimationFrame = window.requestAnimationFrame(stepMouseTrail);
+        }
+    }
 
     function spawnMouseParticle(x, y, force = false) {
         const now = performance.now();
@@ -83,6 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mouseRipple.style.transform = `translate3d(${x}px, ${y}px, 0)`;
         mouseRipple.classList.add('active');
         spawnMouseParticle(x, y);
+        pushMouseTrailPoint(x, y);
 
         window.clearTimeout(mouseRipple._hideTimer);
         mouseRipple._hideTimer = window.setTimeout(() => {
@@ -91,6 +183,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (supportsFinePointer) {
+        resizeTrailCanvas();
+
         window.addEventListener('pointermove', function(e) {
             mouseInside = true;
             mouseX = e.clientX;
@@ -113,6 +207,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.setProperty('--mouse-intensity', '0');
             mouseRipple.classList.remove('active');
         });
+
+        window.addEventListener('resize', resizeTrailCanvas, { passive: true });
 
         window.addEventListener('pointerdown', function(e) {
             mouseX = e.clientX;
