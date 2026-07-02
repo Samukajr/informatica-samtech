@@ -985,6 +985,286 @@ a {
 }
 
 /* ============================================
+   Tema Futurista
+   ============================================ */
+:root {
+    --future-bg-0: #04070d;
+    --future-bg-1: #081120;
+    --future-bg-2: #0d1f36;
+    --future-ink-1: #eaf6ff;
+    --future-ink-2: #9eb4c9;
+    --future-line: rgba(120, 220, 255, 0.26);
+    --future-neon-cyan: #27e1ff;
+    --future-neon-blue: #2e7bff;
+    --future-neon-green: #49ffb3;
+    --future-glow: 0 0 0 1px rgba(39, 225, 255, 0.25), 0 0 34px rgba(39, 225, 255, 0.14);
+}
+
+body {
+    color: var(--future-ink-1);
+    background: radial-gradient(900px 520px at 10% 0%, rgba(39, 225, 255, 0.14), transparent 62%),
+                radial-gradient(820px 480px at 90% 16%, rgba(46, 123, 255, 0.12), transparent 64%),
+                linear-gradient(180deg, var(--future-bg-0) 0%, var(--future-bg-1) 52%, var(--future-bg-2) 100%);
+}
+
+.header {
+    background-color: rgba(3, 10, 20, 0.72);
+    border-bottom: 1px solid var(--future-line);
+    backdrop-filter: blur(14px);
+}
+
+.header.scrolled {
+    background-color: rgba(3, 10, 20, 0.9);
+}
+
+.hero {
+    background: linear-gradient(rgba(2, 8, 18, 0.48), rgba(2, 8, 18, 0.78)),
+                url('../images/Fundo.png?v=20260702') center center/cover no-repeat;
+    isolation: isolate;
+}
+
+.hero-overlay {
+    background: radial-gradient(circle at 18% 28%, rgba(39, 225, 255, 0.18) 0%, transparent 52%),
+                radial-gradient(circle at 82% 30%, rgba(46, 123, 255, 0.16) 0%, transparent 54%),
+                linear-gradient(180deg, rgba(2, 8, 18, 0.08), rgba(2, 8, 18, 0.42));
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(to right,
+                    rgba(120, 220, 255, 0.08) 0,
+                    rgba(120, 220, 255, 0.08) 1px,
+                    transparent 1px,
+                    transparent 44px),
+                repeating-linear-gradient(to bottom,
+                    rgba(120, 220, 255, 0.07) 0,
+                    rgba(120, 220, 255, 0.07) 1px,
+                    transparent 1px,
+                    transparent 44px);
+    mix-blend-mode: screen;
+    opacity: 0.26;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+                rgba(2, 8, 18, 0.52) 0%,
+                rgba(2, 8, 18, 0.2) 45%,
+                rgba(2, 8, 18, 0.56) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-content {
+    z-index: 2;
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    text-shadow: 0 6px 28px rgba(39, 225, 255, 0.36);
+    letter-spacing: 0.4px;
+    line-height: 1.15;
+}
+
+.hero-title .highlight {
+    color: var(--future-neon-cyan);
+    text-shadow: 0 0 18px rgba(39, 225, 255, 0.5);
+}
+
+.hero-subtitle,
+.hero-badges {
+    color: #d5e8f7;
+}
+
+.hero-badges li {
+    background: rgba(8, 24, 40, 0.45);
+    border: 1px solid var(--future-line);
+    backdrop-filter: blur(6px);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--future-neon-cyan), var(--future-neon-blue));
+    color: #031120;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 0 8px 28px rgba(39, 225, 255, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 36px rgba(39, 225, 255, 0.42);
+}
+
+.btn-secondary {
+    color: var(--future-ink-1);
+    border-color: var(--future-line);
+    background-color: rgba(5, 20, 35, 0.45);
+}
+
+.btn-secondary:hover {
+    color: #02121f;
+    border-color: rgba(39, 225, 255, 0.8);
+    background-color: var(--future-neon-cyan);
+    box-shadow: var(--future-glow);
+}
+
+.section,
+.sobre,
+.servicos,
+.portfolio,
+.faq,
+.contato {
+    background-color: transparent;
+}
+
+.sobre,
+.servicos,
+.portfolio,
+.faq,
+.contato {
+    position: relative;
+}
+
+.sobre::before,
+.servicos::before,
+.portfolio::before,
+.faq::before,
+.contato::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(5, 16, 28, 0.66), rgba(5, 16, 28, 0.5));
+    border-top: 1px solid rgba(120, 220, 255, 0.11);
+    border-bottom: 1px solid rgba(120, 220, 255, 0.11);
+    pointer-events: none;
+}
+
+.sobre .container,
+.servicos .container,
+.portfolio .container,
+.faq .container,
+.contato .container {
+    position: relative;
+    z-index: 1;
+}
+
+.section-title,
+.service-card h3,
+.portfolio-summary h3,
+.portfolio-clients h3,
+.info-card h3,
+.timeline-item h4,
+.faq-item summary,
+.form-group label {
+    color: var(--future-ink-1);
+}
+
+.section-subtitle,
+p,
+.service-card p,
+.portfolio-areas ul,
+.timeline-item p,
+.info-card p,
+.info-card a,
+.faq-item p {
+    color: var(--future-ink-2);
+}
+
+.service-card,
+.process-card,
+.timeline-item,
+.faq-item,
+.info-card,
+.contact-form,
+.logo-tile,
+.portfolio-areas,
+.highlight-card {
+    background: linear-gradient(160deg, rgba(9, 24, 42, 0.72), rgba(6, 17, 30, 0.68));
+    border: 1px solid var(--future-line);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(8px);
+}
+
+.service-card:hover,
+.process-card:hover,
+.timeline-item:hover,
+.logo-tile:hover,
+.info-card:hover {
+    border-color: rgba(39, 225, 255, 0.62);
+    box-shadow: var(--future-glow);
+}
+
+.service-icon,
+.process-step,
+.section-divider,
+.scroll-to-top {
+    background: linear-gradient(135deg, var(--future-neon-cyan), var(--future-neon-blue));
+}
+
+.portfolio-areas,
+.timeline-item,
+.info-card {
+    border-left: 3px solid rgba(39, 225, 255, 0.65);
+}
+
+.timeline-date {
+    color: var(--future-neon-cyan);
+}
+
+.client-logo {
+    filter: grayscale(100%) brightness(0.72) contrast(1.14);
+}
+
+.logo-tile:hover .client-logo {
+    filter: grayscale(0%) brightness(1) contrast(1.05);
+}
+
+.form-group input,
+.form-group textarea {
+    color: var(--future-ink-1);
+    background-color: rgba(3, 11, 20, 0.62);
+    border: 1px solid rgba(120, 220, 255, 0.24);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: rgba(39, 225, 255, 0.85);
+    box-shadow: 0 0 0 3px rgba(39, 225, 255, 0.16);
+}
+
+.footer {
+    background: radial-gradient(700px 320px at 85% 20%, rgba(39, 225, 255, 0.1), transparent 70%),
+                linear-gradient(180deg, #04101d 0%, #030812 100%);
+    border-top: 1px solid rgba(120, 220, 255, 0.2);
+}
+
+@keyframes riseGlow {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+        filter: blur(3px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.hero-content,
+.section-header,
+.service-card,
+.process-card {
+    animation: riseGlow 0.8s ease both;
+}
+
+/* ============================================
    Responsive Design
    ============================================ */
 
@@ -1061,6 +1341,21 @@ a {
     .hero-title {
         font-size: 2rem;
     }
+
+    .hero::before {
+        opacity: 0.24;
+    }
+
+    .hero {
+        background-position: 62% center;
+    }
+
+    .hero::after {
+        background: linear-gradient(180deg,
+                    rgba(2, 8, 18, 0.56) 0%,
+                    rgba(2, 8, 18, 0.34) 45%,
+                    rgba(2, 8, 18, 0.68) 100%);
+    }
     
     .hero-subtitle {
         font-size: 1.125rem;
@@ -1132,6 +1427,15 @@ a {
     
     .hero-title {
         font-size: 1.75rem;
+    }
+
+    .hero {
+        background-position: 68% center;
+    }
+
+    .hero-overlay {
+        background: radial-gradient(circle at 28% 22%, rgba(39, 225, 255, 0.14) 0%, transparent 54%),
+                    linear-gradient(180deg, rgba(2, 8, 18, 0.18), rgba(2, 8, 18, 0.54));
     }
     
     .contact-form {
