@@ -123,16 +123,16 @@ body.mouse-active .footer {
     pointer-events: none;
     z-index: 2;
     opacity: 0;
-    border: 1px solid rgba(39, 225, 255, 0.6);
-    box-shadow: 0 0 14px rgba(39, 225, 255, 0.35), 0 0 36px rgba(46, 123, 255, 0.18);
-    background: radial-gradient(circle, rgba(39, 225, 255, 0.28) 0%, rgba(39, 225, 255, 0.08) 45%, transparent 70%);
+    border: 1px solid rgba(39, 225, 255, 0.82);
+    box-shadow: 0 0 18px rgba(39, 225, 255, 0.48), 0 0 48px rgba(46, 123, 255, 0.24);
+    background: radial-gradient(circle, rgba(39, 225, 255, 0.42) 0%, rgba(39, 225, 255, 0.12) 42%, transparent 70%);
     transform: scale(0.15);
     transition: transform 420ms ease, opacity 420ms ease;
 }
 
 .mouse-ripple.active {
     opacity: 1;
-    transform: scale(4.2);
+    transform: scale(5.1);
 }
 
 .mouse-orbit {
@@ -147,8 +147,8 @@ body.mouse-active .footer {
     z-index: 1;
     opacity: 0;
     border-radius: 50%;
-    background: conic-gradient(from 180deg, rgba(39, 225, 255, 0.0), rgba(39, 225, 255, 0.45), rgba(73, 255, 179, 0.18), rgba(46, 123, 255, 0.42), rgba(39, 225, 255, 0.0));
-    filter: blur(18px);
+    background: conic-gradient(from 180deg, rgba(39, 225, 255, 0.0), rgba(39, 225, 255, 0.72), rgba(73, 255, 179, 0.3), rgba(46, 123, 255, 0.66), rgba(39, 225, 255, 0.0));
+    filter: blur(14px) saturate(1.35);
     mix-blend-mode: screen;
     transition: opacity 220ms ease;
 }
@@ -166,7 +166,7 @@ body.mouse-active .footer {
     z-index: 2;
     opacity: 0;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.92) 0%, rgba(39, 225, 255, 0.8) 32%, rgba(39, 225, 255, 0.18) 62%, transparent 72%);
-    box-shadow: 0 0 10px rgba(39, 225, 255, 0.55), 0 0 18px rgba(46, 123, 255, 0.24);
+    box-shadow: 0 0 12px rgba(39, 225, 255, 0.7), 0 0 24px rgba(46, 123, 255, 0.34);
     transform: translate3d(0, 0, 0) scale(0.55);
     animation: particleDrift var(--particle-duration, 900ms) ease-out forwards;
     will-change: transform, opacity;
@@ -179,7 +179,8 @@ body.mouse-active .footer {
     height: 100vh;
     pointer-events: none;
     z-index: 2;
-    opacity: 0.9;
+    opacity: 1;
+    filter: blur(0.35px) saturate(1.2);
     mix-blend-mode: screen;
 }
 
@@ -198,7 +199,7 @@ body.mouse-active .footer {
 }
 
 body.mouse-active .mouse-orbit {
-    opacity: 0.18;
+    opacity: 0.42;
 }
 
 body.mouse-active .hero-content,
@@ -209,7 +210,7 @@ body.mouse-active .portfolio-card,
 body.mouse-active .logo-tile,
 body.mouse-active .faq-item,
 body.mouse-active .info-card {
-    transform: translate3d(calc((var(--mouse-x) - 50vw) / 80), calc((var(--mouse-y) - 50vh) / 90), 0);
+    transform: translate3d(calc((var(--mouse-x) - 50vw) / 60), calc((var(--mouse-y) - 50vh) / 72), 0);
 }
 
 @media (pointer: coarse) {

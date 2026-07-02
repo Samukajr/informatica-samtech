@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const particleGapMs = 70;
     const mouseParticles = [];
     const mouseTrailPoints = [];
-    const maxTrailPoints = 18;
+    const maxTrailPoints = 26;
     let trailAnimationFrame = null;
 
     const mouseOrbit = document.createElement('div');
@@ -60,18 +60,18 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let i = 1; i < mouseTrailPoints.length; i += 1) {
             const start = mouseTrailPoints[i - 1];
             const end = mouseTrailPoints[i];
-            const alpha = end.life * 0.65;
-            const width = 1.2 + (i / mouseTrailPoints.length) * 3.2;
+            const alpha = end.life * 0.82;
+            const width = 1.6 + (i / mouseTrailPoints.length) * 5.2;
 
             const gradient = mouseTrailContext.createLinearGradient(start.x, start.y, end.x, end.y);
-            gradient.addColorStop(0, `rgba(39, 225, 255, ${alpha * 0.15})`);
-            gradient.addColorStop(0.5, `rgba(39, 225, 255, ${alpha * 0.78})`);
-            gradient.addColorStop(1, `rgba(73, 255, 179, ${alpha * 0.18})`);
+            gradient.addColorStop(0, `rgba(39, 225, 255, ${alpha * 0.28})`);
+            gradient.addColorStop(0.45, `rgba(39, 225, 255, ${alpha * 1})`);
+            gradient.addColorStop(1, `rgba(73, 255, 179, ${alpha * 0.34})`);
 
             mouseTrailContext.strokeStyle = gradient;
             mouseTrailContext.lineWidth = width;
-            mouseTrailContext.shadowBlur = 12;
-            mouseTrailContext.shadowColor = `rgba(39, 225, 255, ${alpha * 0.26})`;
+            mouseTrailContext.shadowBlur = 22;
+            mouseTrailContext.shadowColor = `rgba(39, 225, 255, ${alpha * 0.42})`;
             mouseTrailContext.beginPath();
             mouseTrailContext.moveTo(start.x, start.y);
             mouseTrailContext.lineTo(end.x, end.y);
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function stepMouseTrail() {
         for (let i = mouseTrailPoints.length - 1; i >= 0; i -= 1) {
-            mouseTrailPoints[i].life -= 0.04;
+            mouseTrailPoints[i].life -= 0.03;
             if (mouseTrailPoints[i].life <= 0) {
                 mouseTrailPoints.splice(i, 1);
             }
