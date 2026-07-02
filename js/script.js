@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let mouseInside = false;
     let mouseX = window.innerWidth * 0.5;
     let mouseY = window.innerHeight * 0.2;
+    let lastParticleSpawn = 0;
+    const maxMouseParticles = 20;
+    const particleGapMs = 70;
+    const mouseParticles = [];
 
     const mouseOrbit = document.createElement('div');
     mouseOrbit.className = 'mouse-orbit';
@@ -19,6 +23,53 @@ document.addEventListener('DOMContentLoaded', function() {
     const mouseRipple = document.createElement('div');
     mouseRipple.className = 'mouse-ripple';
     document.body.appendChild(mouseRipple);
+
+    function spawnMouseParticle(x, y, force = false) {
+        const now = performance.now();
+
+        if (!force && now - lastParticleSpawn < particleGapMs) {
+            return;
+        }
+
+        lastParticleSpawn = now;
+
+        if (mouseParticles.length >= maxMouseParticles) {
+            const oldParticle = mouseParticles.shift();
+            if (oldParticle && oldParticle.parentNode) {
+                oldParticle.parentNode.removeChild(oldParticle);
+            }
+        }
+
+        const particle = document.createElement('span');
+        particle.className = 'mouse-particle';
+
+        const size = 3 + Math.random() * 4;
+        const distance = 10 + Math.random() * 24;
+        const angle = Math.random() * Math.PI * 2;
+        const dx = Math.cos(angle) * distance * 0.85;
+        const dy = Math.sin(angle) * distance * 0.55 - (8 + Math.random() * 14);
+        const duration = 620 + Math.random() * 240;
+
+        particle.style.left = `${x}px`;
+        particle.style.top = `${y}px`;
+        particle.style.setProperty('--particle-size', `${size}px`);
+        particle.style.setProperty('--particle-dx', `${dx}px`);
+        particle.style.setProperty('--particle-dy', `${dy}px`);
+        particle.style.setProperty('--particle-duration', `${duration}ms`);
+
+        document.body.appendChild(particle);
+        mouseParticles.push(particle);
+
+        particle.addEventListener('animationend', function() {
+            const index = mouseParticles.indexOf(particle);
+            if (index !== -1) {
+                mouseParticles.splice(index, 1);
+            }
+            if (particle.parentNode) {
+                particle.parentNode.removeChild(particle);
+            }
+        }, { once: true });
+    }
 
     function updateMouseVisuals() {
         const x = mouseX;
@@ -31,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mouseOrbit.style.transform = `translate3d(${x}px, ${y}px, 0)`;
         mouseRipple.style.transform = `translate3d(${x}px, ${y}px, 0)`;
         mouseRipple.classList.add('active');
+        spawnMouseParticle(x, y);
 
         window.clearTimeout(mouseRipple._hideTimer);
         mouseRipple._hideTimer = window.setTimeout(() => {
@@ -67,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
             mouseY = e.clientY;
             mouseInside = true;
             document.body.classList.add('mouse-active');
+            spawnMouseParticle(mouseX, mouseY, true);
             updateMouseVisuals();
         }, { passive: true });
 

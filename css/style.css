@@ -153,8 +153,41 @@ body.mouse-active .footer {
     transition: opacity 220ms ease;
 }
 
+.mouse-particle {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: var(--particle-size, 8px);
+    height: var(--particle-size, 8px);
+    margin-left: calc(var(--particle-size, 8px) / -2);
+    margin-top: calc(var(--particle-size, 8px) / -2);
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.92) 0%, rgba(39, 225, 255, 0.8) 32%, rgba(39, 225, 255, 0.18) 62%, transparent 72%);
+    box-shadow: 0 0 10px rgba(39, 225, 255, 0.55), 0 0 18px rgba(46, 123, 255, 0.24);
+    transform: translate3d(0, 0, 0) scale(0.55);
+    animation: particleDrift var(--particle-duration, 900ms) ease-out forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes particleDrift {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 0, 0) scale(0.55);
+    }
+    12% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(var(--particle-dx, 0px), var(--particle-dy, -24px), 0) scale(0.1);
+    }
+}
+
 body.mouse-active .mouse-orbit {
-    opacity: 0.32;
+    opacity: 0.18;
 }
 
 body.mouse-active .hero-content,
