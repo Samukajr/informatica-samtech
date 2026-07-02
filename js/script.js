@@ -4,6 +4,76 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // ============================================
+    // Mouse Glow / Parallax Effect
+    // ============================================
+    const supportsFinePointer = window.matchMedia('(pointer: fine)').matches;
+    let mouseFrame = null;
+    let mouseInside = false;
+    let mouseX = window.innerWidth * 0.5;
+    let mouseY = window.innerHeight * 0.2;
+
+    const mouseOrbit = document.createElement('div');
+    mouseOrbit.className = 'mouse-orbit';
+    document.body.appendChild(mouseOrbit);
+
+    const mouseRipple = document.createElement('div');
+    mouseRipple.className = 'mouse-ripple';
+    document.body.appendChild(mouseRipple);
+
+    function updateMouseVisuals() {
+        const x = mouseX;
+        const y = mouseY;
+
+        document.body.style.setProperty('--mouse-x', `${x}px`);
+        document.body.style.setProperty('--mouse-y', `${y}px`);
+        document.body.style.setProperty('--mouse-intensity', mouseInside ? '1' : '0');
+
+        mouseOrbit.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        mouseRipple.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        mouseRipple.classList.add('active');
+
+        window.clearTimeout(mouseRipple._hideTimer);
+        mouseRipple._hideTimer = window.setTimeout(() => {
+            mouseRipple.classList.remove('active');
+        }, 120);
+    }
+
+    if (supportsFinePointer) {
+        window.addEventListener('pointermove', function(e) {
+            mouseInside = true;
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            document.body.classList.add('mouse-active');
+
+            if (mouseFrame) {
+                return;
+            }
+
+            mouseFrame = window.requestAnimationFrame(() => {
+                updateMouseVisuals();
+                mouseFrame = null;
+            });
+        }, { passive: true });
+
+        window.addEventListener('pointerleave', function() {
+            mouseInside = false;
+            document.body.classList.remove('mouse-active');
+            document.body.style.setProperty('--mouse-intensity', '0');
+            mouseRipple.classList.remove('active');
+        });
+
+        window.addEventListener('pointerdown', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            mouseInside = true;
+            document.body.classList.add('mouse-active');
+            updateMouseVisuals();
+        }, { passive: true });
+
+        updateMouseVisuals();
+    }
+
+    // ============================================
     // Mobile Menu Toggle
     // ============================================
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
