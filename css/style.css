@@ -552,12 +552,14 @@ a {
     padding: 1.25rem 1.5rem;
     border-radius: 14px;
     font-size: 1.2rem;
-    color: var(--text-dark);
+    color: #dceeff;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
     box-shadow: var(--shadow-sm);
 }
 
 .sobre-highlight strong {
-    color: var(--primary-color);
+    color: #7ec8ff;
 }
 
 .sobre-stats {
@@ -1183,15 +1185,15 @@ body {
 }
 
 .hero {
-    background: linear-gradient(rgba(2, 8, 18, 0.48), rgba(2, 8, 18, 0.78)),
+    background: linear-gradient(rgba(2, 8, 18, 0.24), rgba(2, 8, 18, 0.46)),
                 url('../images/Fundo.png?v=20260702') center center/cover no-repeat;
     isolation: isolate;
 }
 
 .hero-overlay {
-    background: radial-gradient(circle at 18% 28%, rgba(39, 225, 255, 0.18) 0%, transparent 52%),
-                radial-gradient(circle at 82% 30%, rgba(46, 123, 255, 0.16) 0%, transparent 54%),
-                linear-gradient(180deg, rgba(2, 8, 18, 0.08), rgba(2, 8, 18, 0.42));
+    background: radial-gradient(circle at 18% 28%, rgba(39, 225, 255, 0.28) 0%, transparent 52%),
+                radial-gradient(circle at 82% 30%, rgba(46, 123, 255, 0.24) 0%, transparent 54%),
+                linear-gradient(180deg, rgba(2, 8, 18, 0.03), rgba(2, 8, 18, 0.22));
 }
 
 .hero::before {
@@ -1219,9 +1221,9 @@ body {
     position: absolute;
     inset: 0;
     background: linear-gradient(90deg,
-                rgba(2, 8, 18, 0.52) 0%,
-                rgba(2, 8, 18, 0.2) 45%,
-                rgba(2, 8, 18, 0.56) 100%);
+                rgba(2, 8, 18, 0.34) 0%,
+                rgba(2, 8, 18, 0.1) 45%,
+                rgba(2, 8, 18, 0.38) 100%);
     z-index: 1;
     pointer-events: none;
 }
@@ -1517,9 +1519,9 @@ p,
 
     .hero::after {
         background: linear-gradient(180deg,
-                    rgba(2, 8, 18, 0.56) 0%,
-                    rgba(2, 8, 18, 0.34) 45%,
-                    rgba(2, 8, 18, 0.68) 100%);
+                    rgba(2, 8, 18, 0.4) 0%,
+                    rgba(2, 8, 18, 0.22) 45%,
+                    rgba(2, 8, 18, 0.5) 100%);
     }
     
     .hero-subtitle {
@@ -1599,8 +1601,8 @@ p,
     }
 
     .hero-overlay {
-        background: radial-gradient(circle at 28% 22%, rgba(39, 225, 255, 0.14) 0%, transparent 54%),
-                    linear-gradient(180deg, rgba(2, 8, 18, 0.18), rgba(2, 8, 18, 0.54));
+        background: radial-gradient(circle at 28% 22%, rgba(39, 225, 255, 0.2) 0%, transparent 54%),
+                    linear-gradient(180deg, rgba(2, 8, 18, 0.08), rgba(2, 8, 18, 0.34));
     }
     
     .contact-form {
