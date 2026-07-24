@@ -1742,16 +1742,10 @@ body,
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     }
 
-    .theme-toggle-label {
-        display: none;
-    }
-
     .theme-toggle {
-        width: 40px;
-        height: 40px;
-        padding: 0;
-        justify-content: center;
-        border-radius: 50%;
+        min-height: 38px;
+        padding: 0.42rem 0.72rem;
+        font-size: 0.85rem;
     }
 }
 

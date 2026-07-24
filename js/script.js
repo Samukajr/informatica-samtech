@@ -33,9 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (label) {
-            label.textContent = isDark ? 'Modo: Escuro' : 'Modo: Claro';
+            label.textContent = 'Tema';
         }
 
+        themeToggle.setAttribute('aria-label', isDark ? 'Alternar para modo claro' : 'Alternar para modo escuro');
+        themeToggle.setAttribute('title', isDark ? 'Alternar para modo claro' : 'Alternar para modo escuro');
         themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
     }
 
