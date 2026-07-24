@@ -1547,16 +1547,25 @@ body,
 
 [data-theme='light'] .hero::after {
     background: linear-gradient(90deg,
-                rgba(226, 239, 252, 0.4) 0%,
-                rgba(226, 239, 252, 0.14) 45%,
-                rgba(226, 239, 252, 0.42) 100%);
+                rgba(209, 227, 245, 0.52) 0%,
+                rgba(209, 227, 245, 0.28) 45%,
+                rgba(209, 227, 245, 0.56) 100%);
+}
+
+[data-theme='light'] .hero-content {
+    background: linear-gradient(170deg, rgba(246, 252, 255, 0.84), rgba(230, 242, 252, 0.74));
+    border: 1px solid rgba(23, 88, 150, 0.2);
+    border-radius: 28px;
+    padding: 2rem 2.25rem;
+    box-shadow: 0 18px 42px rgba(10, 53, 98, 0.2);
+    backdrop-filter: blur(3px);
 }
 
 [data-theme='light'] .hero-title,
 [data-theme='light'] .hero-subtitle,
 [data-theme='light'] .hero-badges {
-    color: #0f2d4a;
-    text-shadow: none;
+    color: #0a2744;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.42);
 }
 
 [data-theme='light'] .hero-title .highlight {
@@ -1565,8 +1574,8 @@ body,
 }
 
 [data-theme='light'] .hero-badges li {
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(23, 88, 150, 0.18);
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(23, 88, 150, 0.24);
 }
 
 [data-theme='light'] .btn-primary {
@@ -1577,9 +1586,9 @@ body,
 }
 
 [data-theme='light'] .btn-secondary {
-    color: #0d4fb0;
+    color: #0b4290;
     border-color: rgba(13, 79, 176, 0.4);
-    background-color: rgba(255, 255, 255, 0.72);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 [data-theme='light'] .btn-secondary:hover {
@@ -1819,6 +1828,11 @@ body,
     .hero-subtitle {
         font-size: 1.125rem;
     }
+
+    [data-theme='light'] .hero-content {
+        padding: 1.4rem 1rem;
+        border-radius: 20px;
+    }
     
     .hero-buttons {
         flex-direction: column;
@@ -1895,6 +1909,11 @@ body,
     .hero-overlay {
         background: radial-gradient(circle at 28% 22%, rgba(39, 225, 255, 0.2) 0%, transparent 54%),
                     linear-gradient(180deg, rgba(2, 8, 18, 0.08), rgba(2, 8, 18, 0.34));
+    }
+
+    [data-theme='light'] .hero-content {
+        padding: 1.2rem 0.8rem;
+        border-radius: 16px;
     }
     
     .contact-form {
