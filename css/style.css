@@ -214,11 +214,26 @@ body.mouse-active .info-card {
 }
 
 @media (pointer: coarse) {
-    body::before,
-    body::after,
-    .mouse-ripple,
     .mouse-orbit {
-        display: none !important;
+        width: 140px;
+        height: 140px;
+        margin-left: -70px;
+        margin-top: -70px;
+    }
+
+    .mouse-ripple.active {
+        transform: scale(4.2);
+    }
+
+    body.mouse-active .hero-content,
+    body.mouse-active .section-header,
+    body.mouse-active .service-card,
+    body.mouse-active .process-card,
+    body.mouse-active .portfolio-card,
+    body.mouse-active .logo-tile,
+    body.mouse-active .faq-item,
+    body.mouse-active .info-card {
+        transform: none;
     }
 }
 

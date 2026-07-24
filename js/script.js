@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     // Mouse Glow / Parallax Effect
     // ============================================
-    const supportsFinePointer = window.matchMedia('(pointer: fine)').matches;
     let mouseFrame = null;
     let mouseInside = false;
     let mouseX = window.innerWidth * 0.5;
     let mouseY = window.innerHeight * 0.2;
+    let touchEndTimer = null;
     let lastParticleSpawn = 0;
     const maxMouseParticles = 20;
     const particleGapMs = 70;
@@ -182,45 +182,76 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 120);
     }
 
-    if (supportsFinePointer) {
-        resizeTrailCanvas();
-
-        window.addEventListener('pointermove', function(e) {
-            mouseInside = true;
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            document.body.classList.add('mouse-active');
-
-            if (mouseFrame) {
-                return;
-            }
-
-            mouseFrame = window.requestAnimationFrame(() => {
-                updateMouseVisuals();
-                mouseFrame = null;
-            });
-        }, { passive: true });
-
-        window.addEventListener('pointerleave', function() {
-            mouseInside = false;
-            document.body.classList.remove('mouse-active');
-            document.body.style.setProperty('--mouse-intensity', '0');
-            mouseRipple.classList.remove('active');
-        });
-
-        window.addEventListener('resize', resizeTrailCanvas, { passive: true });
-
-        window.addEventListener('pointerdown', function(e) {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            mouseInside = true;
-            document.body.classList.add('mouse-active');
-            spawnMouseParticle(mouseX, mouseY, true);
-            updateMouseVisuals();
-        }, { passive: true });
-
-        updateMouseVisuals();
+    function deactivateMouseVisuals() {
+        mouseInside = false;
+        document.body.classList.remove('mouse-active');
+        document.body.style.setProperty('--mouse-intensity', '0');
+        mouseRipple.classList.remove('active');
     }
+
+    function scheduleTouchEnd() {
+        window.clearTimeout(touchEndTimer);
+        touchEndTimer = window.setTimeout(() => {
+            deactivateMouseVisuals();
+        }, 180);
+    }
+
+    resizeTrailCanvas();
+
+    window.addEventListener('pointermove', function(e) {
+        if (e.pointerType === 'touch') {
+            window.clearTimeout(touchEndTimer);
+        }
+
+        mouseInside = true;
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        document.body.classList.add('mouse-active');
+
+        if (mouseFrame) {
+            return;
+        }
+
+        mouseFrame = window.requestAnimationFrame(() => {
+            updateMouseVisuals();
+            mouseFrame = null;
+        });
+    }, { passive: true });
+
+    window.addEventListener('pointerleave', function() {
+        deactivateMouseVisuals();
+    });
+
+    window.addEventListener('resize', resizeTrailCanvas, { passive: true });
+
+    window.addEventListener('pointerdown', function(e) {
+        if (e.pointerType === 'touch') {
+            window.clearTimeout(touchEndTimer);
+        }
+
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        mouseInside = true;
+        document.body.classList.add('mouse-active');
+        spawnMouseParticle(mouseX, mouseY, true);
+        updateMouseVisuals();
+    }, { passive: true });
+
+    window.addEventListener('pointerup', function(e) {
+        if (e.pointerType === 'touch') {
+            scheduleTouchEnd();
+        }
+    }, { passive: true });
+
+    window.addEventListener('pointercancel', function(e) {
+        if (e.pointerType === 'touch') {
+            scheduleTouchEnd();
+        } else {
+            deactivateMouseVisuals();
+        }
+    }, { passive: true });
+
+    updateMouseVisuals();
 
     // ============================================
     // Mobile Menu Toggle
