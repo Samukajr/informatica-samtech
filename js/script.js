@@ -4,6 +4,69 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // ============================================
+    // Theme Toggle (Claro / Escuro)
+    // ============================================
+    const themeToggle = document.getElementById('themeToggle');
+    const themeStorageKey = 'samtech-theme';
+    const systemDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function getInitialTheme() {
+        const savedTheme = window.localStorage.getItem(themeStorageKey);
+        if (savedTheme === 'light' || savedTheme === 'dark') {
+            return savedTheme;
+        }
+        return systemDarkQuery.matches ? 'dark' : 'light';
+    }
+
+    function updateThemeToggleUI(theme) {
+        if (!themeToggle) {
+            return;
+        }
+
+        const icon = themeToggle.querySelector('i');
+        const label = themeToggle.querySelector('.theme-toggle-label');
+        const isDark = theme === 'dark';
+
+        if (icon) {
+            icon.classList.remove('fa-moon', 'fa-sun');
+            icon.classList.add(isDark ? 'fa-moon' : 'fa-sun');
+        }
+
+        if (label) {
+            label.textContent = isDark ? 'Modo: Escuro' : 'Modo: Claro';
+        }
+
+        themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    }
+
+    function applyTheme(theme, savePreference = false) {
+        const normalizedTheme = theme === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', normalizedTheme);
+        updateThemeToggleUI(normalizedTheme);
+
+        if (savePreference) {
+            window.localStorage.setItem(themeStorageKey, normalizedTheme);
+        }
+    }
+
+    applyTheme(getInitialTheme());
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(nextTheme, true);
+        });
+    }
+
+    systemDarkQuery.addEventListener('change', function(e) {
+        const hasSavedPreference = window.localStorage.getItem(themeStorageKey);
+        if (!hasSavedPreference) {
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+
+    // ============================================
     // Mouse Glow / Parallax Effect
     // ============================================
     let mouseFrame = null;
